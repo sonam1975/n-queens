@@ -204,7 +204,7 @@
         //when not in the array(out of bound element)
       } else {
         for (var i = 0; i < ((2 * this.get('n')) - minorDiagonalColumnIndexAtFirstRow - 1); i++) {
-          diArray.push(this.get(minorDiagonalColumnIndexAtFirstRow - (this.get('n') - 1 - i))[minorDiagonalColumnIndexAtFirstRow - 1 - i]);
+          diArray.push(this.get(minorDiagonalColumnIndexAtFirstRow - (this.get('n') - 1 - i))[this.get('n') -  g1 - i]);
         }
       }
       for (var i = 0; i < diArray.length; i++) {
