@@ -80,3 +80,43 @@ describe('solvers', function() {
   });
 
 });
+
+
+                      results = [];
+                      make different cases where 1 is at each position in the first row
+                      for loop to add a one on space i
+                      var pushBoards = function() {
+                        for (var i = 0; i < n; i++) {
+                          var tempBoard = new Board({n: n});
+                          tempBoard.get(0).splice(i, 1, 1);
+                          //push to results Array
+                          results.push(tempBoard.rows());
+                          //push to childrenArray
+                          board.children.push(tempBoard);
+
+                        }
+
+
+                      var row = 0;
+                      var col = 0;
+
+                      var findSol = function(board) {
+                        // board.togglePiece(row, col);
+                        // col++;
+                        // board.togglePiece(row, col);
+                        for (var col = 0; col < n; col++) {
+
+                          if (!board.hasRowConflictAt(row) || !board.hasColConflict(col)) {
+                            board.togglePiece(row, col);
+                            row++;
+                            col = 0;
+                            findSol(board);
+                          } else {
+                            row--;
+                            board.togglePiece(row, col);
+                            col++;
+                            board.togglePiece(row, col);
+                            row++;
+                            col = 0;
+                          }
+                        }
